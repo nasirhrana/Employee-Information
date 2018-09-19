@@ -17,6 +17,7 @@ namespace EmployeeWebApp.Models
         [EmailAddress]
         public string Email { get; set; }
         [Required]
+        [Range(0, Double.MaxValue)]
         public double Salary { get; set; }
     }
 }

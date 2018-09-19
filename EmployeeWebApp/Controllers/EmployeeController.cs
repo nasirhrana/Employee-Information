@@ -64,7 +64,16 @@ namespace EmployeeWebApp.Controllers
 
         public ActionResult Details(int id)
         {
-            Employee employee = aManager.GetEmployee(id);
+            Employee employee=new Employee();
+            if (id!=null)
+            {
+                employee = aManager.GetEmployee(id);
+                if (employee == null)
+                {
+                    return HttpNotFound();
+                }
+            }
+            
             return View(employee);
         }
 	}
