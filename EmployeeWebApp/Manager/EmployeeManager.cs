@@ -24,5 +24,10 @@ namespace EmployeeWebApp.Manager
         {
             return aGateway.IsEmailExist(email);
         }
+
+        public List<Employee> GetAllEmployee()
+        {
+            return aGateway.GetAllEmployee();
+        }
     }
 }

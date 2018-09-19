@@ -1,4 +1,3 @@
-C:\Users\nasir\Desktop\For Interview\EmployeeWebApp\EmployeeWebApp\obj\Debug\EmployeeWebApp.csprojResolveAssemblyReference.cache
 C:\Users\nasir\Desktop\For Interview\EmployeeWebApp\EmployeeWebApp\bin\EmployeeWebApp.dll.config
 C:\Users\nasir\Desktop\For Interview\EmployeeWebApp\EmployeeWebApp\bin\EmployeeWebApp.dll
 C:\Users\nasir\Desktop\For Interview\EmployeeWebApp\EmployeeWebApp\bin\EmployeeWebApp.pdb

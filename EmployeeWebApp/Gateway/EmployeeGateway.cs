@@ -56,5 +56,28 @@ namespace EmployeeWebApp.Gateway
             con.Close();
             return isExist;
         }
+
+        public List<Employee> GetAllEmployee()
+        {
+            string query = @"select * from [dbo].[Employee]";
+            SqlCommand cmd=new SqlCommand(query, con);
+            con.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Employee> aList=new List<Employee>();
+            while (reader.Read())
+            {
+                Employee employee=new Employee();
+                employee.Id = (int) reader["Id"];
+                employee.EmpId = reader["EmpId"].ToString();
+                employee.Name = reader["Name"].ToString();
+                employee.Email = reader["Email"].ToString();
+                employee.Salary = Convert.ToDouble(reader["Salary"]);
+                aList.Add(employee);
+
+            }
+            reader.Close();
+            con.Close();
+            return aList;
+        }
     }
 }

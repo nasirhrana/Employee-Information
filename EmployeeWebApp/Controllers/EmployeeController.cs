@@ -15,7 +15,8 @@ namespace EmployeeWebApp.Controllers
         private EmployeeManager aManager=new EmployeeManager();
         public ActionResult Index()
         {
-            return View();
+            List<Employee> alList = aManager.GetAllEmployee();
+            return View(alList);
         }
         [HttpGet]
         public ActionResult Create()
