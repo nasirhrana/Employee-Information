@@ -61,5 +61,11 @@ namespace EmployeeWebApp.Controllers
             
             return View();
         }
+
+        public ActionResult Details(int id)
+        {
+            Employee employee = aManager.GetEmployee(id);
+            return View(employee);
+        }
 	}
 }

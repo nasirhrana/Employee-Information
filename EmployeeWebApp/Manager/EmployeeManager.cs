@@ -29,5 +29,10 @@ namespace EmployeeWebApp.Manager
         {
             return aGateway.GetAllEmployee();
         }
+
+        public Employee GetEmployee(int id)
+        {
+            return aGateway.GetEmployee(id);
+        }
     }
 }

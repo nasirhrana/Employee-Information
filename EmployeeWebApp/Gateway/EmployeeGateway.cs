@@ -79,5 +79,26 @@ namespace EmployeeWebApp.Gateway
             con.Close();
             return aList;
         }
+        public Employee GetEmployee(int id)
+        {
+            string query = @"select * from [dbo].[Employee] where Id='"+id+"'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            con.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            Employee employee = new Employee();
+            while (reader.Read())
+            {
+                
+                employee.Id = (int)reader["Id"];
+                employee.EmpId = reader["EmpId"].ToString();
+                employee.Name = reader["Name"].ToString();
+                employee.Email = reader["Email"].ToString();
+                employee.Salary = Convert.ToDouble(reader["Salary"]);
+
+            }
+            reader.Close();
+            con.Close();
+            return employee;
+        }
     }
 }

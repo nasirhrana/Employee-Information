@@ -52,3 +52,4 @@ C:\Users\nasir\Desktop\For Interview\EmployeeWebApp\EmployeeWebApp\bin\Microsoft
 C:\Users\nasir\Desktop\For Interview\EmployeeWebApp\EmployeeWebApp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\nasir\Desktop\For Interview\EmployeeWebApp\EmployeeWebApp\obj\Debug\EmployeeWebApp.dll
 C:\Users\nasir\Desktop\For Interview\EmployeeWebApp\EmployeeWebApp\obj\Debug\EmployeeWebApp.pdb
+C:\Users\nasir\Desktop\For Interview\EmployeeWebApp\EmployeeWebApp\obj\Debug\EmployeeWebApp.csprojResolveAssemblyReference.cache
