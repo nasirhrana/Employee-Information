@@ -34,5 +34,10 @@ namespace EmployeeWebApp.Manager
         {
             return aGateway.GetEmployee(id);
         }
+
+        public string GetTotalAmount()
+        {
+            return aGateway.GetTotalAmount();
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace EmployeeWebApp.Controllers
         public ActionResult Index()
         {
             List<Employee> alList = aManager.GetAllEmployee();
+            ViewBag.TotalAmount = aManager.GetTotalAmount();
             return View(alList);
         }
         [HttpGet]
@@ -43,7 +44,7 @@ namespace EmployeeWebApp.Controllers
                         int message = aManager.Save(employee);
                         if (message > 0)
                         {
-                            ViewBag.message = "Save Successfully";
+                            ViewBag.message = "Emloyee Save Successfully";
                         }
                         else
                         {

@@ -100,5 +100,22 @@ namespace EmployeeWebApp.Gateway
             con.Close();
             return employee;
         }
+
+        public string GetTotalAmount()
+        {
+            string query = @"select sum(Salary) as Amount from [dbo].[Employee] ";
+            SqlCommand cmd=new SqlCommand(query, con);
+            con.Open();
+            string amount="";
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                amount = reader["Amount"].ToString();
+            }
+            reader.Close();
+            con.Close();
+            return amount;
+
+        }
     }
 }
