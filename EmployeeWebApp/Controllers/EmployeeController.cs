@@ -31,16 +31,6 @@ namespace EmployeeWebApp.Controllers
             {
                 try
                 {
-                    if (aManager.IsEmployeeIdExist(employee.EmpId))
-                    {
-                        ViewBag.message = "Employee ID is already exist";
-                    }
-                    else if (aManager.IsEmailExist(employee.Email))
-                    {
-                        ViewBag.message = "Email is already exist";
-                    }
-                    else
-                    {
                         int message = aManager.Save(employee);
                         if (message > 0)
                         {
@@ -50,7 +40,7 @@ namespace EmployeeWebApp.Controllers
                         {
                             ViewBag.message = "failed to save";
                         }
-                    }
+                    
                 }
                 catch (Exception ex)
                 {
@@ -63,19 +53,30 @@ namespace EmployeeWebApp.Controllers
             return View();
         }
 
-        public ActionResult Details(int id)
-        {
-            Employee employee=new Employee();
-            if (id!=null)
-            {
-                employee = aManager.GetEmployee(id);
-                if (employee == null)
-                {
-                    return HttpNotFound();
-                }
-            }
+        //public ActionResult Details(int id)
+        //{
+        //    Employee employee=new Employee();
+        //    if (id!=null)
+        //    {
+        //        employee = aManager.GetEmployee(id);
+        //        if (employee == null)
+        //        {
+        //            return HttpNotFound();
+        //        }
+        //    }
             
-            return View(employee);
+        //    return View(employee);
+        //}
+
+        public JsonResult IsEmpIdExist(string empid)
+        {
+            bool result = aManager.IsEmployeeIdExist(empid);
+            return Json(!result, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult IsEmailExist(string email)
+        {
+            bool result = aManager.IsEmailExist(email);
+            return Json(!result, JsonRequestBehavior.AllowGet);
         }
 	}
 }

@@ -18,8 +18,9 @@
 
         <div class="form-group">
             <label id="ShowEmployeeName" class="control-label col-md-4"></label>
-            <div class="col-md-8"> 
-                <input type="text" class="form-control" id="EmpId" name="EmpId" placeholder="Enter ID" />
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.EmpId, new { placeholder = "Enter Enter ID", @class = "form-control" }) 
+                @*<input type="text" class="form-control" id="EmpId" name="EmpId" placeholder="Enter ID" />*@
                 @Html.ValidationMessageFor(model => model.EmpId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -35,7 +36,7 @@
         <div class="form-group">
             <label id="ShowEmployeeName" class="control-label col-md-4"></label>
             <div class="col-md-8">
-                <input type="text" class="form-control" id="Email" name="Email" placeholder="Enter Email" /> 
+                @Html.TextBoxFor(m => m.Email, new { placeholder = "Enter Email", @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -71,20 +72,6 @@
     <script>
         $(document).ready(function () {
             
-            //$('#employeeForm').validate({
-            //    rules: {
-            //        EmpId: "required",
-            //        Name: "required",
-            //        Email: "required",
-            //        Salary: "required",
-            //    },
-            //    message: {
-            //        EmpId: "Please enter Employee ID",
-            //        Name: "Please enter Name",
-            //        Email: "Please enter Email",
-            //        Salary: "Please enter Salary",
-            //    }
-            //});
             $('#EmpId').val('');
             $('#Name').val('');
             $('#Email').val('');

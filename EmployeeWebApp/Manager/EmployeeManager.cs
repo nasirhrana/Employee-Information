@@ -30,10 +30,10 @@ namespace EmployeeWebApp.Manager
             return aGateway.GetAllEmployee();
         }
 
-        public Employee GetEmployee(int id)
-        {
-            return aGateway.GetEmployee(id);
-        }
+        //public Employee GetEmployee(int id)
+        //{
+        //    return aGateway.GetEmployee(id);
+        //}
 
         public string GetTotalAmount()
         {

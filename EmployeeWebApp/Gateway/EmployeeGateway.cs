@@ -15,17 +15,28 @@ namespace EmployeeWebApp.Gateway
 
         public int Save(Employee employee)
         {
-            string query = @"INSERT INTO [dbo].[Employee]
+            try
+            {
+                string query = @"INSERT INTO [dbo].[Employee]
            ([EmpId]
            ,[Name]
            ,[Email]
            ,[Salary])
-            VALUES('"+employee.EmpId+"','"+employee.Name+"','"+employee.Email+"','"+employee.Salary+"')";
-            SqlCommand cmd=new SqlCommand(query,con);
-            con.Open();
-            int rowAffected = cmd.ExecuteNonQuery();
-            con.Close();
-            return rowAffected;
+            VALUES('" + employee.EmpId + "','" + employee.Name + "','" + employee.Email + "','" + employee.Salary + "')";
+                SqlCommand cmd = new SqlCommand(query, con);
+                con.Open();
+                int rowAffected = cmd.ExecuteNonQuery();
+                con.Close();
+                return rowAffected;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Unable to connect Server", exception);
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
         public bool IsEmployeeIdExist(string id)
@@ -79,27 +90,27 @@ namespace EmployeeWebApp.Gateway
             con.Close();
             return aList;
         }
-        public Employee GetEmployee(int id)
-        {
-            string query = @"select * from [dbo].[Employee] where Id='"+id+"'";
-            SqlCommand cmd = new SqlCommand(query, con);
-            con.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            Employee employee = new Employee();
-            while (reader.Read())
-            {
+        //public Employee GetEmployee(int id)
+        //{
+        //    string query = @"select * from [dbo].[Employee] where Id='"+id+"'";
+        //    SqlCommand cmd = new SqlCommand(query, con);
+        //    con.Open();
+        //    SqlDataReader reader = cmd.ExecuteReader();
+        //    Employee employee = new Employee();
+        //    while (reader.Read())
+        //    {
                 
-                employee.Id = (int)reader["Id"];
-                employee.EmpId = reader["EmpId"].ToString();
-                employee.Name = reader["Name"].ToString();
-                employee.Email = reader["Email"].ToString();
-                employee.Salary = Convert.ToDouble(reader["Salary"]);
+        //        employee.Id = (int)reader["Id"];
+        //        employee.EmpId = reader["EmpId"].ToString();
+        //        employee.Name = reader["Name"].ToString();
+        //        employee.Email = reader["Email"].ToString();
+        //        employee.Salary = Convert.ToDouble(reader["Salary"]);
 
-            }
-            reader.Close();
-            con.Close();
-            return employee;
-        }
+        //    }
+        //    reader.Close();
+        //    con.Close();
+        //    return employee;
+        //}
 
         public string GetTotalAmount()
         {
